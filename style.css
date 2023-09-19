@@ -292,6 +292,10 @@ section {
   gap: 1rem;
 }
 
+.meta-link {
+  display: flex;
+}
+
 /* ICONS */
 
 .icon {
