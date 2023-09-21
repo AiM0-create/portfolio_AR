@@ -180,7 +180,7 @@ a:hover {
 }
 
 .menu-links {
-  position: absolute;
+  position: relative;
   top: 100%;
   right: 0;
   background-color: white;
@@ -192,12 +192,13 @@ a:hover {
 
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: black;
   text-decoration: none;
   transition: all 0.3 ease-in-out;
+  max-height: 15px;
 }
 
 .menu-links li {
