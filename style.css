@@ -7,8 +7,22 @@
   padding: 0;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+:root{
+  --bg-1: #f7f8fb;
+  --bg-2: #ffffff;
+  --muted: #6b7280;
+  --accent: #3b82f6;
+  --card-bg: rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --radius: 16px;
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Poppins", sans-serif;
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color: #111827;
+  -webkit-font-smoothing:antialiased;
 }
 
 html {
@@ -107,9 +121,15 @@ nav,
 }
 
 nav {
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 17vh;
+  padding: 1rem 4rem;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.3));
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.03);
 }
 
 .nav-links {
@@ -236,15 +256,15 @@ a:hover {
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
+  padding: 6rem 4rem;
+  margin: 0 auto;
   box-sizing: border-box;
-  min-height: fit-content;
+  min-height: 60vh;
 }
 
 .section-container {
   display: flex;
+  align-items: center;
 }
 
 /* PROFILE SECTION */
@@ -284,6 +304,8 @@ section {
 .title {
   font-size: 3rem;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 #socials-container {
@@ -315,38 +337,31 @@ section {
 
 .btn {
   font-weight: 600;
-  transition: all 300ms ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-}
-
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-.btn-color-1:hover,
-.btn-color-2:hover {
+  transition: all 220ms cubic-bezier(.2,.9,.2,1);
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
   cursor: pointer;
 }
 
 .btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
+.btn-color-1,
+.btn-color-2 {
+  border: 1px solid rgba(15,23,42,0.06);
+  background: white;
 }
 
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 .btn-color-2 {
-  background: none;
+  background: transparent;
 }
 
 .btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59,130,246,0.08);
 }
 
 .btn-container {
@@ -388,11 +403,11 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
-  border-radius: 2rem;
-  /* border: rgb(53, 53, 53) 0.1rem solid; */
-  border-color: rgb(163, 163, 163);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15,23,42,0.04);
   text-align: left;
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .section-container {
@@ -457,9 +472,10 @@ article .icon {
 }
 
 .project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  border-radius: 12px;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
 
 .project-title {
@@ -470,6 +486,78 @@ article .icon {
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
+}
+
+/* Projects layout: use a responsive grid scoped to #projects to avoid
+   changing .about-containers globally (used elsewhere). */
+#projects .about-containers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+#projects .details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-between; /* push buttons to the bottom */
+  min-height: 320px; /* ensure reasonably equal heights */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  max-width: 100%;
+}
+
+#projects .details-container:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.08);
+}
+
+#projects .article-container {
+  width: 100%;
+}
+
+#projects .project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+  margin: 0 auto 0.75rem auto;
+}
+
+/* Center projects container and limit its max width */
+#projects .experience-details-container {
+  display: flex;
+  justify-content: center;
+}
+
+#projects .about-containers {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#projects .project-desc {
+  margin: 0.5rem 0 1rem 0;
+  color: rgb(85,85,85);
+}
+
+@media screen and (max-width: 1200px) {
+  #projects .about-containers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #projects .about-containers {
+    grid-template-columns: 1fr;
+  }
+  #projects .project-img {
+    height: 40vw;
+  }
+  /* tighten spacing on small screens */
+  #projects .details-container {
+    padding: 0.75rem;
+  }
 }
 
 /* CONTACT */
