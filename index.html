@@ -8,49 +8,78 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
-  <body>
-    <!-- <header>
-      <label  id="dark-change"></label>
-    </header> -->
-    <nav id="desktop-nav">
-      <div class="logo">
-        <!-- <a href="/"> -->
-          <img src="assets\logo.png" alt="logo">
-        <!-- </a> -->
-      </div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo"><img src="assets\logo.png" alt=""></div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+  <body data-theme="light">
+    <header class="site-header">
+      <nav id="desktop-nav" aria-label="Primary navigation">
+        <div class="logo" aria-label="Abhishek Rawat logo">
+          <img src="assets/logo.png" alt="Stylised initials AR" />
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <div>
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Skills</a></li>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
-      </div>
-    </nav>
-    <section id="profile" class="hidden">
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="Activate dark theme"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+        </button>
+      </nav>
+      <nav id="hamburger-nav" aria-label="Mobile navigation">
+        <div class="logo" aria-hidden="true"><img src="assets/logo.png" alt="" /></div>
+        <div class="hamburger-menu">
+          <button
+            class="hamburger-icon"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            onclick="toggleMenu()"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div id="mobile-menu" class="menu-links" role="menu">
+            <ul>
+              <li><a href="#about" onclick="toggleMenu()" role="menuitem">About</a></li>
+              <li><a href="#experience" onclick="toggleMenu()" role="menuitem">Skills</a></li>
+              <li><a href="#highlights" onclick="toggleMenu()" role="menuitem">Highlights</a></li>
+              <li><a href="#projects" onclick="toggleMenu()" role="menuitem">Projects</a></li>
+              <li><a href="#contact" onclick="toggleMenu()" role="menuitem">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <button
+          id="mobile-theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="Activate dark theme"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <section id="profile" class="hidden">
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Abhishek Rawat profile picture" />
       </div>
       <div class="section__text">
-        <p class="section__text__p1">Hello <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" alt="hello" width="30" height="30">, I'm</p>
+        <p class="section__text__p1">Hello <span role="img" aria-label="waving hand">👋</span>, I'm</p>
         <h1 class="title">Abhishek Rawat</h1>
-        <p class="section__text__p2">Urban planner and GIS enthusiast </p>
+        <p class="section__text__p2">Urban planner · GIS enthusiast · Storyteller with maps</p>
+        <p class="section__text__intro">
+          I translate complex spatial data into actionable insights for resilient, human-centred cities.
+        </p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
@@ -63,22 +92,36 @@
           </button>
         </div>
         <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/abhishek-rawat-9795a914a/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/'"
-          />
+          <a
+            class="icon-link"
+            href="https://www.linkedin.com/in/abhishek-rawat-9795a914a/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Visit my LinkedIn profile"
+          >
+            <img
+              src="./assets/linkedin.png"
+              alt="LinkedIn icon"
+              class="icon"
+            />
+          </a>
+          <a
+            class="icon-link"
+            href="https://github.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Visit my GitHub profile"
+          >
+            <img
+              src="./assets/github.png"
+              alt="GitHub icon"
+              class="icon"
+            />
+          </a>
         </div>
       </div>
-    </section>
-    <section id="about" class="hidden">
+      </section>
+      <section id="about" class="hidden">
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
       <div class="section-container">
@@ -117,14 +160,11 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience" class="hidden">
+      <button class="arrow" type="button" onclick="location.href='./#experience'" aria-label="Jump to skills">
+        <img src="./assets/arrow.png" alt="" class="icon" />
+      </button>
+      </section>
+      <section id="experience" class="hidden">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Skills</h1>
       <div class="experience-details-container">
@@ -251,14 +291,44 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects" class="hidden">
+      <button class="arrow" type="button" onclick="location.href='./#highlights'" aria-label="Jump to highlights">
+        <img src="./assets/arrow.png" alt="" class="icon" />
+      </button>
+      </section>
+      <section id="highlights" class="hidden">
+      <p class="section__text__p1">Value I Bring</p>
+      <h1 class="title">Career Highlights</h1>
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <div class="highlight-card__icon" aria-hidden="true">📊</div>
+          <h3>Data-led Urban Strategy</h3>
+          <p>
+            Delivered geospatial dashboards that helped city stakeholders reduce response times for civic services by
+            prioritising hotspots informed by satellite analytics.
+          </p>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-card__icon" aria-hidden="true">🌍</div>
+          <h3>Inclusive Planning</h3>
+          <p>
+            Partnered with communities to map walkability and accessibility gaps, translating findings into policy
+            recommendations adopted by local urban bodies.
+          </p>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-card__icon" aria-hidden="true">🧠</div>
+          <h3>Continuous Learning</h3>
+          <p>
+            Regularly experiment with modern GIS tooling—Earth Engine, H3 indexing, and AI-assisted analysis—to bring
+            fresh, future-ready perspectives to planning challenges.
+          </p>
+        </article>
+      </div>
+      <button class="arrow" type="button" onclick="location.href='./#projects'" aria-label="Jump to projects">
+        <img src="./assets/arrow.png" alt="" class="icon" />
+      </button>
+      </section>
+      <section id="projects" class="hidden">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
@@ -278,7 +348,7 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="window.open('https://eo-web-ashy.vercel.app/')"
+                onclick="window.open('https://eo-web-ashy.vercel.app/', '_blank', 'noopener,noreferrer')"
               >
                 Website
               </button>
@@ -299,7 +369,7 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="window.open('https://ee-abhishekrawat426.projects.earthengine.app/view/autoclassify')"
+                onclick="window.open('https://ee-abhishekrawat426.projects.earthengine.app/view/autoclassify', '_blank', 'noopener,noreferrer')"
               >
                 View App
               </button>
@@ -325,13 +395,13 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AiM0-create/Module-EADGI-Project'"
+                onclick="window.open('https://github.com/AiM0-create/Module-EADGI-Project', '_blank', 'noopener,noreferrer')"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://aim0-create.github.io/Module-EADGI-Project/'"
+                onclick="window.open('https://aim0-create.github.io/Module-EADGI-Project/', '_blank', 'noopener,noreferrer')"
               >
                 Website
               </button>
@@ -351,13 +421,13 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AiM0-create/h3_spatial_analysis'"
+                onclick="window.open('https://github.com/AiM0-create/h3_spatial_analysis', '_blank', 'noopener,noreferrer')"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://aim0-create.github.io/h3_spatial_analysis/'"
+                onclick="window.open('https://aim0-create.github.io/h3_spatial_analysis/', '_blank', 'noopener,noreferrer')"
               >
                 Website
               </button>
@@ -427,7 +497,7 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://aim0-create.github.io/Unsplash/'"
+                onclick="window.open('https://aim0-create.github.io/Unsplash/', '_blank', 'noopener,noreferrer')"
               >
                 Link
               </button>
@@ -436,46 +506,55 @@
 
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact" class="hidden">
+      <button class="arrow" type="button" onclick="location.href='./#contact'" aria-label="Jump to contact">
+        <img src="./assets/arrow.png" alt="" class="icon" />
+      </button>
+      </section>
+      <section id="contact" class="hidden">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <a href="mailto:abhishekrawat426@gmail.com">
-            <img
+          <img
             src="./assets/email.png"
             alt="Email icon"
             class="icon contact-icon email-icon"
-            />
-          </a>
+          />
+          <a href="mailto:abhishekrawat426@gmail.com" class="contact-link">abhishekrawat426@gmail.com</a>
         </div>
         <div class="contact-info-container">
-          <a href="https://www.linkedin.com/in/abhishek-rawat-9795a914a/">
-            <img
+          <img
             src="./assets/linkedin.png"
             alt="LinkedIn icon"
             class="icon contact-icon"
-            />
-          </a>
+          />
+          <a
+            href="https://www.linkedin.com/in/abhishek-rawat-9795a914a/"
+            class="contact-link"
+            target="_blank"
+            rel="noreferrer noopener"
+          >LinkedIn</a>
         </div>
         <div class="contact-info-container">
-          <a href="https://twitter.com/rawatA99">
-            <img
+          <img
             src="./assets/Twitter.png"
             alt="Twitter icon"
             class="icon contact-icon"
-            />
-          </a>
+          />
+          <a
+            href="https://twitter.com/rawatA99"
+            class="contact-link"
+            target="_blank"
+            rel="noreferrer noopener"
+          >@rawatA99</a>
         </div>
       </div>
-    </section>
+      <p class="contact-cta">
+        Prefer a quick chat? <a href="https://cal.com/" target="_blank" rel="noreferrer noopener">Schedule a discovery call</a>
+        and let's explore how geospatial intelligence can accelerate your next project.
+      </p>
+      </section>
+    </main>
     <footer>
       <!-- <nav>
         <div class="nav-links-container">
