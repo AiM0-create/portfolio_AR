@@ -1,0 +1,342 @@
+{
+"profile": {
+"name": "Norden-Style",
+"version": "1.0",
+"summary": "A modern, minimal, high-contrast portfolio/blog system with paired light/dark themes, rounded cards, soft gradients, and subtle glass surfaces. Emphasis on calm whitespace, legible type, and image-first project/blog cards."
+},
+"brand": {
+"adjectives": ["minimal", "confident", "calm", "polished", "editorial"],
+"tone": "professional + friendly",
+"shapes": ["rounded-rectangles", "pills", "circular avatars/dots"],
+"motifs": ["soft radial background gradient", "glass/elevated cards", "small online-status dot", "monochrome UI with one accent"]
+},
+"themes": {
+"modes": ["light", "dark"],
+"color": {
+"tokens": {
+"neutral-0": "#FFFFFF",
+"neutral-50": "#F4F5F6",
+"neutral-100": "#E9EBEE",
+"neutral-200": "#DCDDE1",
+"neutral-300": "#C8CBD1",
+"neutral-600": "#4B4F57",
+"neutral-700": "#343841",
+"neutral-800": "#1F2227",
+"neutral-900": "#0F1114",
+"accent": "#22C55E",
+"accent-contrast": "#0B0B0B",
+"warning": "#F59E0B",
+"error": "#EF4444",
+"info": "#3B82F6"
+},
+"light": {
+"bg-canvas": "linear-gradient(180deg,#F1F2F4 0%,#E6E7EA 100%)",
+"bg-surface": "rgba(255,255,255,0.96)",
+"bg-elevated": "rgba(255,255,255,0.98)",
+"text-primary": "#0F1114",
+"text-secondary": "#4B4F57",
+"border": "rgba(15,17,20,0.08)",
+"shadow-ambient": "0 20px 60px rgba(15,17,20,0.10)"
+},
+"dark": {
+"bg-canvas": "linear-gradient(180deg,#131519 0%,#0D0F12 100%)",
+"bg-surface": "rgba(23,26,30,0.9)",
+"bg-elevated": "rgba(23,26,30,0.95)",
+"text-primary": "#F4F5F6",
+"text-secondary": "rgba(244,245,246,0.68)",
+"border": "rgba(244,245,246,0.08)",
+"shadow-ambient": "0 24px 64px rgba(0,0,0,0.45)"
+}
+}
+},
+"typography": {
+"font-family-sans": "Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica Neue, Arial",
+"weights": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 },
+"scale": {
+"display": { "size": 40, "line": 48, "tracking": -0.01 },
+"h1": { "size": 32, "line": 40, "tracking": -0.01 },
+"h2": { "size": 24, "line": 32, "tracking": -0.005 },
+"h3": { "size": 18, "line": 28, "tracking": 0 },
+"body": { "size": 16, "line": 26, "tracking": 0 },
+"small": { "size": 13, "line": 20, "tracking": 0.01 },
+"eyebrow": { "size": 12, "line": 16, "transform": "uppercase", "tracking": 0.12 }
+}
+},
+"layout": {
+"grid": { "columns": 12, "gutter": 24, "max-width": 1200, "page-padding": 24 },
+"breakpoints": {
+"xs": 360,
+"sm": 640,
+"md": 768,
+"lg": 1024,
+"xl": 1280
+},
+"sections": [
+"shell/navbar",
+"hero",
+"logo-strip",
+"testimonial",
+"work-gallery",
+"blog-list",
+"contact",
+"footer",
+"utility/404"
+]
+},
+"effects": {
+"radii": { "xs": 8, "sm": 12, "md": 16, "lg": 20, "xl": 24, "2xl": 28, "full": 999 },
+"borders": {
+"hairline": "1px",
+"subtle": "1px solid var(--border)",
+"inner-highlight": "inset 0 1px 0 rgba(255,255,255,0.08)"
+},
+"shadows": {
+"ambient": "var(--shadow-ambient)",
+"lift": "0 8px 20px rgba(0,0,0,0.12)",
+"press": "inset 0 1px 2px rgba(0,0,0,0.20)"
+},
+"blurs": { "glass": 12 },
+"transitions": {
+"fast": "150ms cubic-bezier(0.2,0.8,0.2,1)",
+"base": "220ms cubic-bezier(0.2,0.8,0.2,1)"
+},
+"hover": { "raise-translateY": -2, "scale-media": 1.01 }
+},
+"imagery": {
+"ratios": { "thumb": "4/3", "card": "16/9", "portrait": "3/4", "square": "1/1" },
+"treatments": {
+"rounded": "var(--radius-lg)",
+"shadow": "var(--shadow-ambient)",
+"border": "1px solid rgba(255,255,255,0.06)",
+"cover": true
+}
+},
+"components": {
+"navbar": {
+"container": { "height": 56, "paddingX": 16, "maxWidth": "var(--max-width)" },
+"left": { "brand-mark": "circle-outline + wordmark", "brand-size": 18 },
+"center": { "presence-badge": { "dot": "accent", "pill": true, "text": "Available" } },
+"right": { "menu-label": true },
+"style": { "surface": "bg-surface", "borderBottom": "hairline", "radius": "xl" }
+},
+"hero-card": {
+"layout": "stack",
+"surface": "elevated glass",
+"radius": "xl",
+"padding": 24,
+"slots": ["avatar", "name-role", "headline", "subtext", "cta-row"],
+"cta-row": {
+"primary": { "variant": "solid", "tone": "neutral-900 on light / neutral-0 on dark" },
+"secondary": { "variant": "ghost", "bordered": true }
+}
+},
+"logo-strip": {
+"layout": "row wrap",
+"gap": 28,
+"opacity": 0.7,
+"treatment": "monochrome"
+},
+"testimonial": {
+"style": { "card": true, "radius": "xl", "surface": "bg-surface" },
+"slots": ["quote", "avatar+name", "stars-optional"]
+},
+"work-gallery": {
+"section-header": { "title": "Work", "subtext": "short paragraph" },
+"cards": {
+"variant": "project-card",
+"grid": { "columns-desktop": 1, "stack-vertical": true, "gap": 20 },
+"project-card": {
+"radius": "xl",
+"padding": 12,
+"image": { "ratio": "16/9", "rounded": true },
+"title-badge": { "position": "top-left pill" },
+"hover": { "shadow": "lift", "media-scale": "scale-media" }
+}
+}
+},
+"blog-list": {
+"section-header": { "title": "Blog", "subtext": "short paragraph" },
+"card": {
+"radius": "xl",
+"image-first": true,
+"meta-chips": ["category", "reading-time"],
+"footer-cta": "Read",
+"dark-variant": { "surfaces": "bg-elevated", "text": "text-primary" }
+},
+"post-meta-chip": {
+"radius": "full",
+"paddingX": 12,
+"paddingY": 6,
+"border": "subtle"
+}
+},
+"contact": {
+"left": { "about-card": "like hero, with portrait" },
+"right": {
+"form": {
+"fields": [
+{ "type": "text", "label": "Your Name" },
+{ "type": "email", "label": "Your Email" },
+{ "type": "textarea", "label": "Your Message", "rows": 4 }
+],
+"submit": { "label": "Send Message", "variant": "solid" }
+}
+},
+"footer-cta-bar": {
+"floating": true,
+"radius": "xl",
+"height": 56,
+"contents": ["Book a Call", "phone-icon"]
+}
+},
+"footer": {
+"social-row": ["Instagram", "Pinterest", "Behance", "Twitter"],
+"style": { "muted": true, "grid": "auto-fit min 120" }
+},
+"utility-404": {
+"layout": "two-cards-centered",
+"cards": {
+"radius": "xl",
+"image": { "b&w-allowed": true, "ratio": "1/1 or 4/5" },
+"caption": "404 - Page not found",
+"top-link": "Go back"
+}
+},
+"buttons": {
+"sizes": { "sm": { "px": 12, "py": 8 }, "md": { "px": 16, "py": 12 } },
+"radius": "full",
+"variants": {
+"solid": {
+"bg": { "light": "neutral-900", "dark": "neutral-0" },
+"fg": { "light": "neutral-0", "dark": "neutral-900" }
+},
+"ghost": {
+"bg": "transparent",
+"fg": "text-primary",
+"border": "subtle",
+"hover-bg": "rgba(0,0,0,0.04) on light / rgba(255,255,255,0.04) on dark"
+},
+"link": { "underline": false, "hover-underline": true }
+},
+"icons": { "placement": "leading or trailing", "size": 16, "gap": 8 }
+},
+"chips": {
+"presence": {
+"shape": "pill",
+"dot": { "size": 8, "color": "accent" },
+"padding": [8, 12],
+"text": { "weight": "medium" }
+}
+},
+"cards": {
+"base": {
+"radius": "xl",
+"padding": 16,
+"surface": "bg-surface",
+"border": "subtle",
+"shadow": "ambient",
+"backdrop-blur": "glass"
+}
+},
+"avatar": { "shape": "circle", "size": 40, "border": "subtle" },
+"tagline-block": { "max-width": 640, "spacing": 8 }
+},
+"patterns": {
+"paired-themes": {
+"rule": "Render dual previews side-by-side (light left, dark right) using identical structure and spacing."
+},
+"section-cards": {
+"rule": "Each section starts with a header block then stacks cards with consistent gap; images have the same ratio and rounded corners."
+},
+"status-indicator": {
+"rule": "Small green dot + 'Available' pill near brand/navigation; optional in hero."
+}
+},
+"content": {
+"placeholders": {
+"name": "Person Name",
+"role": "Primary Role",
+"headline": "Clear value statement",
+"subtext": "1–3 lines of supporting copy",
+"testimonial": "Short client quote",
+"logos": ["Brand A", "Brand B", "Brand C"],
+"meta": { "category": "Category", "readingTime": "2 Min" }
+},
+"rules": [
+"Keep headlines 1–2 lines; avoid widows.",
+"Use plain, concise language.",
+"Never embed real brand names or personal data in templates."
+]
+},
+"accessibility": {
+"contrast": "AA for text, AAA for small text when feasible",
+"focus": { "outline": "2px auto FocusRing" },
+"targets": { "minTap": 44 }
+},
+"responsive-behavior": {
+"hero": { "stack": "vertical on < md", "avatar": "top-left", "buttons": "wrap" },
+"gallery": { "cards-per-row": { "xs": 1, "md": 1, "lg": 1 }, "full-bleed-images": true },
+"blog": { "list": "single column", "image": "full width then text block" },
+"contact": { "two-column": ">= lg", "single-column": "< lg" }
+},
+"motion": {
+"card-hover": { "translateY": -2, "shadow": "lift", "duration": "fast" },
+"button-press": { "scale": 0.98, "duration": "fast" },
+"image-reveal": { "opacity": [0, 1], "y": [8, 0], "duration": "base" }
+},
+"implementation": {
+"tailwind-theme": {
+"extend": {
+"colors": {
+"accent": "#22C55E",
+"canvas": { "light": "#E6E7EA", "dark": "#0D0F12" },
+"surface": { "light": "#FFFFFF", "dark": "#171A1E" }
+},
+"borderRadius": { "xl": "24px", "2xl": "28px" },
+"boxShadow": {
+"ambient": "0 20px 60px rgba(15,17,20,0.10)",
+"lift": "0 8px 20px rgba(0,0,0,0.12)"
+}
+}
+},
+"css-variables": {
+"--max-width": "1200px",
+"--radius-xl": "24px",
+"--shadow-ambient": "var(--shadow-ambient-token)"
+},
+"utility-classes": {
+"card": "rounded-2xl border border-white/10 bg-white/90 backdrop-blur-md shadow-ambient dark:border-white/10 dark:bg-neutral-900/80",
+"pill": "inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm",
+"chip": "rounded-full border px-3 py-1 text-xs",
+"section": "mx-auto max-w-[1200px] px-6 md:px-8"
+}
+},
+"structure-templates": {
+"page-home": [
+"navbar",
+"hero-card",
+"logo-strip",
+"testimonial",
+"work-gallery",
+"blog-list",
+"footer"
+],
+"page-blog-post": [
+"navbar",
+"post-hero (title, author-row, meta-chip-row)",
+"hero-image",
+"article body",
+"footer"
+],
+"page-contact": ["navbar", "about-card + contact-form", "footer"],
+"page-404": ["centered two-image cards with captions and 'Go back' link"]
+},
+"quality-checklist": [
+"Consistent card radius across sections",
+"Light/dark surfaces swap while keeping identical spacing",
+"Images keep specified ratios and rounded corners",
+"Use a single accent color (green) primarily for status and micro-highlights",
+"Apply subtle hairline borders + ambient shadows for elevation",
+"Keep copy lengths within defined line counts"
+]
+}
