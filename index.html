@@ -10,11 +10,11 @@
   </head>
   <body data-theme="light">
     <header class="site-header">
-      <nav id="desktop-nav" aria-label="Primary navigation">
-        <div class="logo" aria-label="Abhishek Rawat logo">
-          <img src="assets/logo.png" alt="Stylised initials AR" />
+      <nav id="desktop-nav" aria-label="Primary navigation" class="nav-pill">
+        <div class="logo-text" aria-label="Abhishek Rawat logo">
+          <span class="logo-a">A</span><span class="logo-r">R</span><span class="logo-dot">.</span>
         </div>
-        <div>
+        <div class="nav-links-wrapper">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Skills</a></li>
@@ -33,8 +33,10 @@
           <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
         </button>
       </nav>
-      <nav id="hamburger-nav" aria-label="Mobile navigation">
-        <div class="logo" aria-hidden="true"><img src="assets/logo.png" alt="" /></div>
+      <nav id="hamburger-nav" aria-label="Mobile navigation" class="nav-pill">
+        <div class="logo-text" aria-hidden="true">
+          <span class="logo-a">A</span><span class="logo-r">R</span><span class="logo-dot">.</span>
+        </div>
         <div class="hamburger-menu">
           <button
             class="hamburger-icon"
@@ -70,13 +72,16 @@
     </header>
     <main>
       <section id="profile" class="hidden">
+      <div class="cursor-gradient"></div>
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Abhishek Rawat profile picture" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello <span role="img" aria-label="waving hand">👋</span>, I'm</p>
         <h1 class="title">Abhishek Rawat</h1>
-        <p class="section__text__p2">Urban planner · GIS enthusiast · Storyteller with maps</p>
+        <p class="section__text__p2">
+          <span class="typed-text"></span><span class="cursor-blink">|</span>
+        </p>
         <p class="section__text__intro">
           I translate complex spatial data into actionable insights for resilient, human-centred cities.
         </p>
@@ -298,31 +303,43 @@
       <section id="highlights" class="hidden">
       <p class="section__text__p1">Value I Bring</p>
       <h1 class="title">Career Highlights</h1>
-      <div class="highlight-grid">
-        <article class="highlight-card">
-          <div class="highlight-card__icon" aria-hidden="true">📊</div>
-          <h3>Data-led Urban Strategy</h3>
-          <p>
-            Delivered geospatial dashboards that helped city stakeholders reduce response times for civic services by
-            prioritising hotspots informed by satellite analytics.
-          </p>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-card__icon" aria-hidden="true">🌍</div>
-          <h3>Inclusive Planning</h3>
-          <p>
-            Partnered with communities to map walkability and accessibility gaps, translating findings into policy
-            recommendations adopted by local urban bodies.
-          </p>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-card__icon" aria-hidden="true">🧠</div>
-          <h3>Continuous Learning</h3>
-          <p>
-            Regularly experiment with modern GIS tooling—Earth Engine, H3 indexing, and AI-assisted analysis—to bring
-            fresh, future-ready perspectives to planning challenges.
-          </p>
-        </article>
+      <div class="flashcards-container">
+        <button class="flashcard-nav-btn flashcard-nav-prev" onclick="navigateHighlights(-1)" aria-label="Previous highlight">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="flashcards-stack">
+          <article class="flashcard" data-index="0">
+            <div class="flashcard__icon" aria-hidden="true">📊</div>
+            <h3>Data-led Urban Strategy</h3>
+            <p>
+              Delivered geospatial dashboards that helped city stakeholders reduce response times for civic services by
+              prioritising hotspots informed by satellite analytics.
+            </p>
+          </article>
+          <article class="flashcard" data-index="1">
+            <div class="flashcard__icon" aria-hidden="true">🌍</div>
+            <h3>Inclusive Planning</h3>
+            <p>
+              Partnered with communities to map walkability and accessibility gaps, translating findings into policy
+              recommendations adopted by local urban bodies.
+            </p>
+          </article>
+          <article class="flashcard" data-index="2">
+            <div class="flashcard__icon" aria-hidden="true">🧠</div>
+            <h3>Continuous Learning</h3>
+            <p>
+              Regularly experiment with modern GIS tooling—Earth Engine, H3 indexing, and AI-assisted analysis—to bring
+              fresh, future-ready perspectives to planning challenges.
+            </p>
+          </article>
+        </div>
+        <button class="flashcard-nav-btn flashcard-nav-next" onclick="navigateHighlights(1)" aria-label="Next highlight">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
       </div>
       <button class="arrow" type="button" onclick="location.href='./#projects'" aria-label="Jump to projects">
         <img src="./assets/arrow.png" alt="" class="icon" />
@@ -331,19 +348,15 @@
       <section id="projects" class="hidden">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          
-          <!-- New project: EO Web demo -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/eo-web.png"
-                alt="EO-Web"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">EO-Web</h2>
+      <div class="projects-flashcards-container">
+        <div class="projects-flashcards-stack">
+          <div class="project-flashcard" data-index="0">
+            <img
+              src="./assets/eo-web.png"
+              alt="EO-Web"
+              class="project-img"
+            />
+            <h2 class="project-title">EO-Web</h2>
             <p class="project-desc">A site to download imageries using STAC APIs. Still under development, this is version 1.0</p>
             <div class="btn-container">
               <button
@@ -354,17 +367,13 @@
               </button>
             </div>
           </div>
-
-          <!-- New project: AutoClassify (Earth Engine App) -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/autoclassify.png"
-                alt="AutoClassify Earth Engine App"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">AutoClassify (Earth Engine App)</h2>
+          <div class="project-flashcard" data-index="1">
+            <img
+              src="./assets/autoclassify.png"
+              alt="AutoClassify Earth Engine App"
+              class="project-img"
+            />
+            <h2 class="project-title">AutoClassify (Earth Engine App)</h2>
             <p class="project-desc">Interactive Earth Engine app for automated classification workflows and quick land-cover previews.</p>
             <div class="btn-container">
               <button
@@ -373,24 +382,15 @@
               >
                 View App
               </button>
-              <!-- <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/AiM0-create/autoclassify'"
-              >
-                Github
-              </button> -->
             </div>
           </div>
-
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-earthquake.png"
-                alt="Project Earthquake"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Web GIS (Global Earthquake visualization)</h2>
+          <div class="project-flashcard" data-index="2">
+            <img
+              src="./assets/project-earthquake.png"
+              alt="Project Earthquake"
+              class="project-img"
+            />
+            <h2 class="project-title">Web GIS (Global Earthquake visualization)</h2>
             <p class="project-desc">Website to visualize Earthquakes all over the Globe.</p>
             <div class="btn-container">
               <button
@@ -407,16 +407,13 @@
               </button>
             </div>
           </div>
-
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-h3.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">H3 spatial analysis</h2>
+          <div class="project-flashcard" data-index="3">
+            <img
+              src="./assets/project-h3.png"
+              alt="Project H3"
+              class="project-img"
+            />
+            <h2 class="project-title">H3 spatial analysis</h2>
             <p class="project-desc">Uttarakhand Schools internet access analysis during pandemic, visualized using H3 spatial indexing.</p>
             <div class="btn-container">
               <button
@@ -484,15 +481,13 @@
             </div>
           </div> -->
 
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/unsplash.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Unsplash</h2>
+          <div class="project-flashcard" data-index="4">
+            <img
+              src="./assets/unsplash.png"
+              alt="Unsplash"
+              class="project-img"
+            />
+            <h2 class="project-title">Unsplash</h2>
             <p class="project-desc">A passionate hobby.</p>
             <div class="btn-container">
               <button
@@ -503,8 +498,17 @@
               </button>
             </div>
           </div>
-
         </div>
+        <button class="flashcard-nav-btn flashcard-nav-prev" onclick="navigateProjects(-1)" aria-label="Previous project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button class="flashcard-nav-btn flashcard-nav-next" onclick="navigateProjects(1)" aria-label="Next project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
       </div>
       <button class="arrow" type="button" onclick="location.href='./#contact'" aria-label="Jump to contact">
         <img src="./assets/arrow.png" alt="" class="icon" />
@@ -549,10 +553,17 @@
           >@rawatA99</a>
         </div>
       </div>
-      <p class="contact-cta">
-        Prefer a quick chat? <a href="https://cal.com/" target="_blank" rel="noreferrer noopener">Schedule a discovery call</a>
-        and let's explore how geospatial intelligence can accelerate your next project.
-      </p>
+      <div class="contact-cta-wrapper">
+        <p class="contact-cta">
+          Prefer a quick chat? Let's explore how geospatial intelligence can accelerate your next project.
+        </p>
+        <a href="https://cal.com/abhishek-rawat-rbiswk" target="_blank" rel="noreferrer noopener" class="cal-cta-button" aria-label="Schedule a discovery call on Cal.com">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+          </svg>
+          Schedule a discovery call
+        </a>
+      </div>
       </section>
     </main>
     <footer>
